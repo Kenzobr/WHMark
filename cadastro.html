@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WHMARK - Cadastro</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="page-center">        
+        <main class="login-container cadastro-container">
+
+            <!-- LOGO -->
+
+            <h1>WHMARK</h1>
+
+            <p class="subtitle">
+                Encontre e crie o seu negócio
+            </p>
+
+
+            <!-- ESCOLHA DO TIPO DE CONTA -->
+
+            <div class="account-types">
+
+                <div class="account-card" id="cardUsuario" onclick="selecionarTipo('usuario')">
+
+                    <h2>WHUser</h2>
+
+                    <p>
+                        Quero encontrar negócios,
+                        produtos e serviços.
+                    </p>
+
+                </div>
+
+
+                <div class="account-card" id="cardVendedor" onclick="selecionarTipo('vendedor')">
+
+                    <h2>WHVendedor</h2>
+
+                    <p>
+                        Quero criar e divulgar
+                        o meu negócio.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORMULÁRIO -->
+
+            <form class="login-form" id="cadastroForm">
+
+                <!-- TIPO DA CONTA -->
+
+                <input
+                    type="hidden"
+                    name="tipo"
+                    id="tipo"
+                    value=""
+                >
+
+
+                <!-- NOME -->
+
+                <div class="input-group">
+
+                    <label for="nome">
+                        Nome
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Digite seu nome"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- E-MAIL -->
+
+                <div class="input-group">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- TELEFONE -->
+
+                <div class="input-group">
+
+                    <label for="telefone">
+                        Telefone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone"
+                        placeholder="(00) 00000-0000"
+                        maxlength="15"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CPF / CNPJ - SOMENTE VENDEDOR -->
+
+                <div
+                    class="input-group vendedor-field"
+                    id="documentoGroup"
+                    style="display: none;"
+                >
+
+                    <label for="documento">
+                        CPF ou CNPJ
+                    </label>
+
+                    <input
+                        type="text"
+                        id="documento"
+                        name="documento"
+                        placeholder="000.000.000-00"
+                        maxlength="18"
+                    >
+
+                </div>
+
+
+                <!-- SENHA -->
+
+                <div class="input-group">
+
+                    <label for="senha">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CONFIRMAÇÃO DE SENHA -->
+
+                <div class="input-group">
+
+                    <label for="confirmacao">
+                        Confirmar senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmacao"
+                        name="confirmacao"
+                        placeholder="Digite sua senha novamente"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- BOTÃO -->
+
+                <button type="submit">
+                    Criar conta
+                </button>
+
+            </form>
+
+
+            <a href="index.html" class="create-account">
+                Já tenho uma conta
+            </a>
+
+        </main>
+
+    </div>
+
+
+    <script>
+
+        function selecionarTipo(tipo) {
+
+            const tipoInput = document.getElementById("tipo");
+
+            const cardUsuario = document.getElementById("cardUsuario");
+            const cardVendedor = document.getElementById("cardVendedor");
+
+            const documentoGroup = document.getElementById("documentoGroup");
+            const documento = document.getElementById("documento");
+
+
+            // Define o tipo da conta
+
+            tipoInput.value = tipo;
+
+
+            // Remove a seleção dos cards
+
+            cardUsuario.classList.remove("selected");
+            cardVendedor.classList.remove("selected");
+
+
+            // WHUSER
+
+            if (tipo === "usuario") {
+
+                cardUsuario.classList.add("selected");
+
+                documentoGroup.style.display = "none";
+
+                documento.required = false;
+
+                documento.value = "";
+
+                documento.placeholder = "000.000.000-00";
+
+            }
+
+
+            // WHVENDEDOR
+
+            if (tipo === "vendedor") {
+
+                cardVendedor.classList.add("selected");
+
+                documentoGroup.style.display = "block";
+
+                documento.required = true;
+
+                documento.placeholder = "CPF ou CNPJ";
+
+            }
+
+        }
+
+
+        // Máscara do telefone
+
+        document
+            .getElementById("telefone")
+            .addEventListener("input", function () {
+
+                let valor = this.value
+                    .replace(/\D/g, "")
+                    .substring(0, 11);
+
+
+                if (valor.length <= 10) {
+
+                    valor = valor.replace(
+                        /^(\d{2})(\d{4})(\d{0,4})/,
+                        "($1) $2-$3"
+                    );
+
+                } else {
+
+                    valor = valor.replace(
+                        /^(\d{2})(\d{5})(\d{0,4})/,
+                        "($1) $2-$3"
+                    );
+
+                }
+
+                this.value = valor;
+
+            });
+
+
+        // Máscara CPF / CNPJ
+
+        document
+            .getElementById("documento")
+            .addEventListener("input", function () {
+
+                let valor = this.value
+                    .replace(/\D/g, "")
+                    .substring(0, 14);
+
+
+                // CPF
+
+                if (valor.length <= 11) {
+
+                    valor = valor.replace(
+                        /(\d{3})(\d)/,
+                        "$1.$2"
+                    );
+
+                    valor = valor.replace(
+                        /(\d{3})(\d)/,
+                        "$1.$2"
+                    );
+
+                    valor = valor.replace(
+                        /(\d{3})(\d{1,2})$/,
+                        "$1-$2"
+                    );
+
+                }
+
+
+                // CNPJ
+
+                else {
+
+                    valor = valor.replace(
+                        /^(\d{2})(\d)/,
+                        "$1.$2"
+                    );
+
+                    valor = valor.replace(
+                        /^(\d{2})\.(\d{3})(\d)/,
+                        "$1.$2.$3"
+                    );
+
+                    valor = valor.replace(
+                        /\.(\d{3})(\d)/,
+                        ".$1/$2"
+                    );
+
+                    valor = valor.replace(
+                        /(\d{4})(\d)/,
+                        "$1-$2"
+                    );
+
+                }
+
+
+                this.value = valor;
+
+            });
+
+
+        // Impede cadastro sem escolher o tipo
+
+        document
+            .getElementById("cadastroForm")
+            .addEventListener("submit", function (event) {
+
+                const tipo = document.getElementById("tipo").value;
+
+
+                if (!tipo) {
+
+                    event.preventDefault();
+
+                    alert("Selecione WHUser ou WHVendedor.");
+
+                }
+
+            });
+
+    </script>
+
+</body>
+
+</html>
