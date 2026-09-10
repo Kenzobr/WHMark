@@ -1,0 +1,690 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100dvh;
+
+    background-color: #f7f7f7;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #111;
+
+    padding-bottom: 80px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.store-header {
+    width: 100%;
+
+    background-color: #d90429;
+
+    color: #fff;
+
+    padding: 55px 20px 50px;
+
+    text-align: center;
+}
+
+.store-header-content {
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+.store-header h1 {
+    font-size: 48px;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 12px;
+}
+
+.store-header p {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    color: #fff;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.store-container {
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 45px 30px 100px;
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
+.section-title {
+    margin-bottom: 25px;
+}
+
+.section-title h2 {
+    font-size: 28px;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+.section-title p {
+    font-size: 15px;
+
+    color: #777;
+}
+
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+.categories-section {
+    margin-bottom: 55px;
+}
+
+.categories-list {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================
+   CARD DE CATEGORIA
+========================= */
+
+.category-card {
+    position: relative;
+
+    height: 260px;
+
+    background-color: #fff;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+
+    transition: 0.25s;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+
+/* IMAGEM DA CATEGORIA */
+
+.category-card img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: 0.3s;
+}
+
+.category-card:hover img {
+    transform: scale(1.04);
+}
+
+
+/* GRADIENTE */
+
+.category-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.05)
+    );
+}
+
+
+/* TEXTO */
+
+.category-info {
+    position: absolute;
+
+    left: 20px;
+    right: 20px;
+    bottom: 18px;
+
+    z-index: 2;
+
+    color: #fff;
+}
+
+.category-info h3 {
+    font-size: 24px;
+
+    margin-bottom: 5px;
+}
+
+.category-info span {
+    font-size: 13px;
+
+    color: #eee;
+}
+
+
+/* =========================
+   PRODUTOS
+========================= */
+
+.products-section {
+    width: 100%;
+}
+
+.products-list {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================
+   CARD DO PRODUTO
+========================= */
+
+.product-card {
+    width: 100%;
+
+    background-color: #fff;
+
+    border: 1px solid #e7e7e7;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition: 0.25s;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #d90429;
+
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   IMAGEM DO PRODUTO
+========================= */
+
+.product-image {
+    width: 100%;
+
+    height: 250px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+========================= */
+
+.product-info {
+    padding: 18px;
+}
+
+
+/* CATEGORIA */
+
+.product-category {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    padding: 5px 8px;
+
+    background-color: #fff0f2;
+
+    color: #d90429;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+
+/* NOME */
+
+.product-info h3 {
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+
+/* DESCRIÇÃO */
+
+.product-description {
+    min-height: 38px;
+
+    margin-bottom: 15px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   PREÇO + BOTÃO
+========================= */
+
+.product-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding-top: 13px;
+
+    border-top: 1px solid #eee;
+}
+
+.product-bottom strong {
+    color: #d90429;
+
+    font-size: 17px;
+}
+
+
+/* BOTÃO */
+
+.product-bottom button {
+    width: auto;
+
+    height: auto;
+
+    margin: 0;
+
+    padding: 9px 12px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background-color: #d90429;
+
+    color: #fff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.product-bottom button:hover {
+    background-color: #b80322;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+    .products-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .categories-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* =========================
+   TABLET MENOR
+========================= */
+
+@media (max-width: 750px) {
+
+    .store-header {
+        padding: 45px 20px;
+    }
+
+    .store-header h1 {
+        font-size: 40px;
+    }
+
+    .categories-list {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card {
+        height: 230px;
+    }
+
+    .products-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding-bottom: 75px;
+    }
+
+
+    /* HEADER */
+
+    .store-header {
+        padding: 40px 20px;
+    }
+
+    .store-header h1 {
+        font-size: 34px;
+
+        letter-spacing: -1.5px;
+
+        margin-bottom: 10px;
+    }
+
+    .store-header p {
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+
+    /* CONTAINER */
+
+    .store-container {
+        padding: 30px 16px 80px;
+    }
+
+
+    /* TÍTULOS */
+
+    .section-title {
+        margin-bottom: 20px;
+    }
+
+    .section-title h2 {
+        font-size: 24px;
+    }
+
+    .section-title p {
+        font-size: 14px;
+    }
+
+
+    /* CATEGORIAS */
+
+    .categories-section {
+        margin-bottom: 40px;
+    }
+
+    .categories-list {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .category-card {
+        height: 190px;
+
+        border-radius: 12px;
+    }
+
+    .category-info {
+        left: 16px;
+        bottom: 15px;
+    }
+
+    .category-info h3 {
+        font-size: 22px;
+    }
+
+
+    /* PRODUTOS */
+
+    .products-list {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .product-image {
+        height: 270px;
+    }
+
+    .product-info {
+        padding: 18px;
+    }
+
+    .product-info h3 {
+        font-size: 19px;
+    }
+
+    .product-description {
+        font-size: 13px;
+    }
+
+    .product-bottom strong {
+        font-size: 18px;
+    }
+
+    .product-bottom button {
+        padding: 10px 14px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================
+   CELULARES MUITO PEQUENOS
+========================= */
+
+@media (max-width: 360px) {
+
+    .store-header h1 {
+        font-size: 30px;
+    }
+
+    .store-header p {
+        font-size: 13px;
+    }
+
+    .store-container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+}
+
+
+/* =========================
+   FILTROS
+========================= */
+
+.filter-container {
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    background-color: #fff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 12px;
+}
+
+
+/* TÍTULO */
+
+.filter-container .section-title {
+    margin-bottom: 0;
+}
+
+.filter-container .section-title h2 {
+    margin-bottom: 5px;
+}
+
+.filter-container .section-title p {
+    margin: 0;
+}
+
+
+/* SELECT */
+
+#categoria {
+    min-width: 200px;
+
+    height: 45px;
+
+    padding: 0 14px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    background-color: #fff;
+
+    color: #111;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+#categoria:hover {
+    border-color: #d90429;
+}
+
+#categoria:focus {
+    border-color: #d90429;
+
+    box-shadow: 0 0 0 2px rgba(217, 4, 41, 0.1);
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 480px) {
+
+    .filter-container {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 15px;
+
+        padding: 16px;
+    }
+
+    #categoria {
+        width: 100%;
+    }
+
+}
+
