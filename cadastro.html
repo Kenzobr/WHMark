@@ -8,13 +8,15 @@
     <title>WHMARK - Cadastro</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="requisicoes/cadastro.js"></script>
 </head>
 
 <body>
     <div class="page-center">        
         <main class="login-container cadastro-container">
 
-            <!-- LOGO -->
+           
 
             <h1>WHMARK</h1>
 
@@ -23,7 +25,7 @@
             </p>
 
 
-            <!-- ESCOLHA DO TIPO DE CONTA -->
+           
 
             <div class="account-types">
 
@@ -53,11 +55,13 @@
             </div>
 
 
-            <!-- FORMULÁRIO -->
+         
+
+            <div id="carregar"></div>
 
             <form class="login-form" id="cadastroForm">
 
-                <!-- TIPO DA CONTA -->
+             
 
                 <input
                     type="hidden"
@@ -67,7 +71,7 @@
                 >
 
 
-                <!-- NOME -->
+           
 
                 <div class="input-group">
 
@@ -86,7 +90,7 @@
                 </div>
 
 
-                <!-- E-MAIL -->
+               
 
                 <div class="input-group">
 
@@ -105,8 +109,7 @@
                 </div>
 
 
-                <!-- TELEFONE -->
-
+               
                 <div class="input-group">
 
                     <label for="telefone">
@@ -125,7 +128,6 @@
                 </div>
 
 
-                <!-- CPF / CNPJ - SOMENTE VENDEDOR -->
 
                 <div
                     class="input-group vendedor-field"
@@ -148,7 +150,7 @@
                 </div>
 
 
-                <!-- SENHA -->
+         
 
                 <div class="input-group">
 
@@ -167,7 +169,7 @@
                 </div>
 
 
-                <!-- CONFIRMAÇÃO DE SENHA -->
+               
 
                 <div class="input-group">
 
@@ -186,13 +188,15 @@
                 </div>
 
 
-                <!-- BOTÃO -->
+         
 
                 <button type="submit">
                     Criar conta
                 </button>
 
             </form>
+
+        
 
 
             <a href="index.html" class="create-account">
@@ -217,18 +221,13 @@
             const documento = document.getElementById("documento");
 
 
-            // Define o tipo da conta
-
             tipoInput.value = tipo;
 
 
-            // Remove a seleção dos cards
-
+        
             cardUsuario.classList.remove("selected");
             cardVendedor.classList.remove("selected");
 
-
-            // WHUSER
 
             if (tipo === "usuario") {
 
@@ -245,8 +244,6 @@
             }
 
 
-            // WHVENDEDOR
-
             if (tipo === "vendedor") {
 
                 cardVendedor.classList.add("selected");
@@ -260,10 +257,6 @@
             }
 
         }
-
-
-        // Máscara do telefone
-
         document
             .getElementById("telefone")
             .addEventListener("input", function () {
