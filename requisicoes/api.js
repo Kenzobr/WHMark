@@ -1,4 +1,4 @@
-const URL_BASE = "https://federation-heart-pittsburgh-sensor.trycloudflare.com/";
+const URL_BASE = "https://cab-budgets-detail-harvard.trycloudflare.com/";
 
 function API(ROTA) {
     return URL_BASE + ROTA.replace(/^\/+/, "");

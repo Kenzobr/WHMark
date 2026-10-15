@@ -23,7 +23,15 @@ function POST_CADASTRO() {
 
             if (RESPOSTA.status === "sucesso") {
 
-                CARREGAR.html(RESPOSTA.dados);
+                localStorage.setItem(
+                    "usuario",
+                    JSON.stringify(RESPOSTA.dados)
+                );
+
+                CARREGAR.text(RESPOSTA.mensagem);
+                setTimeout(function () {
+                    window.location.href = "index_user.html";
+                }, 1000);
 
             } else {
 
@@ -65,6 +73,15 @@ $("#cadastroForm").on("submit", function (EVENTO) {
 
         $("#carregar").text(
             "Selecione WHUser ou WHVendedor."
+        );
+
+        return;
+    }
+
+    if ($("#senha").val() !== $("#confirmacao").val()) {
+
+        $("#carregar").text(
+            "As senhas não conferem."
         );
 
         return;
