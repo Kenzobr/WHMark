@@ -4,7 +4,7 @@ function POST_CADASTRO() {
     const CARREGAR = $("#carregar");
 
     $.ajax({
-        url: "/api/cadastro.php",
+        url: "api/cadastro.php",
         type: "POST",
         data: FORM.serialize(),
         dataType: "json",
