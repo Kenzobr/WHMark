@@ -29,9 +29,15 @@ function POST_CADASTRO() {
                 );
 
                 CARREGAR.text(RESPOSTA.mensagem);
+
+                if(RESPOSTA.dados.tipo == "usuario"){
                 setTimeout(function () {
                     window.location.href = "index_user.html";
+                }, 1000);}else{
+                    setTimeout(function () {
+                    window.location.href = "index_vendedor.html";
                 }, 1000);
+                }
 
             } else {
 
