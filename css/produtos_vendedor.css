@@ -1,0 +1,291 @@
+/* =========================
+   PÁGINA DE PRODUTOS
+   (header, lista e cores vêm do loja_tema.css)
+========================= */
+
+.produtos-container {
+    width: 100%;
+
+
+    margin: 0 auto;
+    padding: 20px 20px 100px;
+
+    box-sizing: border-box;
+
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.produtos-lista {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.produtos-container .loja-status {
+    width: 500px;
+    min-height: 72px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    padding: 12px;
+
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 2000;
+
+    display: none;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.modal-overlay.aberto {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 480px;
+    max-height: 92dvh;
+
+    overflow-y: auto;
+
+    padding: 20px;
+
+    border-radius: 16px 16px 0 0;
+
+    background-color: var(--loja-fundo);
+    color: var(--loja-texto);
+
+    animation: subir 0.25s ease;
+}
+
+@keyframes subir {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@media (min-width: 600px) {
+
+    .modal-overlay {
+        align-items: center;
+    }
+
+    .modal-box {
+        border-radius: 16px;
+    }
+
+}
+
+body.modal-aberto {
+    overflow: hidden;
+}
+
+.modal-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.modal-top h2 {
+    font-size: 20px;
+}
+
+.modal-close {
+    width: 36px;
+    height: 36px;
+
+    margin: 0;
+    padding: 0;
+
+    border-radius: 50%;
+
+    background-color: transparent;
+    color: inherit;
+
+    font-size: 26px;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background-color: rgba(128, 128, 128, 0.25);
+}
+
+#carregar {
+    min-height: 20px;
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   CAMPOS DO FORMULÁRIO
+========================= */
+
+.input-group textarea {
+    display: block;
+
+    width: 100%;
+
+    padding: 12px 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    background-color: #fff;
+    color: #111;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    resize: vertical;
+
+    outline: none;
+}
+
+.input-group textarea:focus {
+    border-color: #111;
+}
+
+.input-group input[type="file"] {
+    height: auto;
+
+    padding: 10px;
+}
+
+.img-preview {
+    display: none;
+
+    width: 90px;
+    height: 90px;
+
+    margin-top: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   SELECT2 (mesmo tamanho dos inputs)
+========================= */
+
+.select2-container--default .select2-selection--single {
+    height: 48px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding-left: 15px;
+
+    color: #111;
+
+    line-height: 46px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #aaa;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 46px;
+}
+
+.select2-dropdown {
+    border-color: #ccc;
+}
+
+
+/* =========================
+   ACABAMENTO (visual refinado)
+========================= */
+
+.produtos-container {
+    padding: 24px var(--margem-lateral) 110px;
+}
+
+.modal-box {
+    padding: 22px 20px 26px;
+
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.modal-top h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.login-form .input-group label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.input-group input,
+.input-group textarea,
+.select2-container--default .select2-selection--single {
+    border-radius: 10px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--loja-destaque);
+}
+
+/* botão Salvar com a cor de destaque da loja */
+#form_produto button[type="submit"] {
+    border-radius: 12px;
+
+    background-color: var(--loja-destaque);
+    color: var(--loja-texto-destaque);
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+#form_produto button[type="submit"]:hover {
+    background-color: var(--loja-destaque);
+
+    opacity: 0.9;
+}

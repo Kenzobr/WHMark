@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WHMARK - Criar loja</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/criar_loja.css">
+</head>
+
+<body>
+
+    <main class="wizard-container">
+
+        <h1>WHMARK</h1>
+
+        <p class="subtitle">Crie a sua loja</p>
+
+        <!-- INDICADOR DE PASSOS -->
+        <div class="steps-indicator">
+            <span class="step-dot active" data-step="1">1</span>
+            <span class="step-dot" data-step="2">2</span>
+            <span class="step-dot" data-step="3">3</span>
+        </div>
+
+        <div id="carregar"></div>
+
+        <form class="login-form" id="form_loja" enctype="multipart/form-data">
+
+            <input type="hidden" name="id_vendedor" id="id_vendedor">
+
+            <!-- PASSO 1 -->
+            <section class="step active" data-step="1">
+
+                <h2>Sobre a loja</h2>
+                <p class="step-desc">Conte o básico do seu negócio.</p>
+
+                <div class="input-group">
+                    <label for="nome">Nome da loja</label>
+                    <input type="text" id="nome" name="nome" maxlength="100"
+                        placeholder="Ex: Studio Moda" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="especialidade">Produto / especialidade</label>
+                    <input type="text" id="especialidade" name="especialidade" maxlength="100"
+                        placeholder="Ex: Camisetas, pizzas, manicure" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">Selecione...</option>
+                        <option value="roupas">Roupas</option>
+                        <option value="comidas">Comidas</option>
+                        <option value="servicos">Serviços</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+
+            </section>
+
+
+            <!-- PASSO 2 -->
+            <section class="step" data-step="2">
+
+                <h2>Rosto da loja</h2>
+                <p class="step-desc">Logo, descrição e onde você fica.</p>
+
+                <div class="input-group">
+                    <label for="logo">Logo da loja</label>
+                    <input type="file" id="logo" name="logo" accept="image/png, image/jpeg, image/webp">
+                    <img id="logoPreview" class="logo-preview" alt="Prévia da logo">
+                </div>
+
+                <div class="input-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" name="descricao" maxlength="300" rows="4"
+                        placeholder="Conte um pouco sobre a sua loja"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" name="cidade" maxlength="80"
+                        placeholder="Ex: Curitiba" required>
+                </div>
+
+                <div class="row-2">
+
+                    <div class="input-group">
+                        <label for="estado">UF</label>
+                        <input type="text" id="estado" name="estado" maxlength="2"
+                            placeholder="PR" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" name="bairro" maxlength="80"
+                            placeholder="Opcional">
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PASSO 3 -->
+            <section class="step" data-step="3">
+
+                <h2>Cores da loja</h2>
+                <p class="step-desc">Deixe com a sua cara. A prévia muda na hora.</p>
+
+                <div class="color-grid">
+
+                    <div class="color-item">
+                        <label for="cor_header">Fundo do header</label>
+                        <input type="color" id="cor_header" name="cor_header" value="#d90429">
+                    </div>
+
+                    <div class="color-item">
+                        <label for="cor_texto_header">Texto do header</label>
+                        <input type="color" id="cor_texto_header" name="cor_texto_header" value="#ffffff">
+                    </div>
+
+                    <div class="color-item">
+                        <label for="cor_fundo">Fundo da loja</label>
+                        <input type="color" id="cor_fundo" name="cor_fundo" value="#f7f7f7">
+                    </div>
+
+                    <div class="color-item">
+                        <label for="cor_texto">Texto da loja</label>
+                        <input type="color" id="cor_texto" name="cor_texto" value="#111111">
+                    </div>
+
+                    <div class="color-item">
+                        <label for="cor_destaque">Botões / destaque</label>
+                        <input type="color" id="cor_destaque" name="cor_destaque" value="#d90429">
+                    </div>
+
+                </div>
+
+                <!-- PRÉVIA -->
+                <div class="loja-preview">
+
+                    <div class="preview-header" id="pvHeader">
+                        <img id="pvLogo" class="preview-logo" alt="">
+                        <span id="pvNome">Minha loja</span>
+                    </div>
+
+                    <div class="preview-body" id="pvBody">
+
+                        <p>Assim vai aparecer a sua loja</p>
+
+                        <div class="preview-card">
+                            <strong>Produto exemplo</strong>
+                            <button type="button" id="pvBotao">Comprar</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- BOTÕES -->
+            <div class="wizard-buttons">
+                <button type="button" id="btnVoltar" class="btn-secondary">Voltar</button>
+                <button type="button" id="btnProximo">Próximo</button>
+                <button type="submit" id="btnCriar">Criar loja</button>
+            </div>
+
+        </form>
+
+        <a href="index_vendedor.html" class="create-account">Voltar para o início</a>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="requisicoes/api.js"></script>
+    <script src="requisicoes/criar_loja.js"></script>
+
+</body>
+
+</html>

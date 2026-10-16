@@ -1,0 +1,528 @@
+/* Fonte (no app Cordova, baixe e deixe local; sem internet cai na fonte do sistema) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+/* =========================================================
+   TEMA DA LOJA (compartilhado entre as páginas do vendedor)
+   As variáveis abaixo são trocadas pelo requisicoes/loja_comum.js
+   com as cores que o vendedor escolheu. Os valores aqui são o padrão.
+========================================================= */
+
+:root {
+    --loja-header: #111111;
+    --loja-texto-header: #ffffff;
+    --loja-fundo: #f5f5f5;
+    --loja-texto: #111111;
+    --loja-destaque: #111111;
+    --loja-texto-destaque: #ffffff;
+
+    /* Largura do conteúdo (header, lista e footer usam a mesma) */
+    --largura-max: 900px;
+    --margem-lateral: max(20px, calc((100% - var(--largura-max)) / 2));
+}
+
+body {
+    padding: 0;
+
+    background-color: var(--loja-fundo);
+    color: var(--loja-texto);
+
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+/* Com loja: some o título padrão do WHMARK e os textos herdam a cor da loja */
+html.tema-loja #intro {
+    display: none;
+}
+
+html.tema-loja .home-container {
+    padding: 28px 20px 110px;
+}
+
+html.tema-loja .home-container p {
+    color: inherit;
+}
+
+
+/* =========================
+   HEADER DA LOJA
+========================= */
+
+.loja-header {
+    position: sticky;
+    top: 0;
+
+    z-index: 900;
+
+    width: 100%;
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px var(--margem-lateral);
+
+    background-color: var(--loja-header);
+    color: var(--loja-texto-header);
+
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.14);
+}
+
+.loja-header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+}
+
+.loja-header span {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    opacity: 0.85;
+}
+
+.store-logo {
+    flex-shrink: 0;
+
+    width: 54px;
+    height: 54px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    background-color: #fff;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+}
+
+.btn-add {
+    width: auto;
+    height: 40px;
+
+    margin: 0 0 0 auto;
+    padding: 0 18px;
+
+    border-radius: 999px;
+
+    background-color: var(--loja-texto-header);
+    color: var(--loja-header);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.btn-add:hover {
+    background-color: var(--loja-texto-header);
+
+    opacity: 0.88;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   BOTÃO (LINK)
+========================= */
+
+.btn-link {
+    display: block;
+
+    width: 100%;
+
+    padding: 14px 20px;
+
+    background-color: var(--loja-destaque);
+    color: var(--loja-texto-destaque);
+
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    text-align: center;
+    text-decoration: none;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+
+    transition: 0.2s;
+}
+
+.btn-link:hover {
+    opacity: 0.9;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   FOOTER COM AS CORES DA LOJA
+========================= */
+
+.bottom-menu {
+    height: 68px;
+
+    padding: 0 var(--margem-lateral);
+}
+
+.menu-item {
+    gap: 3px;
+
+    font-weight: 500;
+}
+
+.menu-item.active {
+    font-weight: 600;
+}
+
+/* Ícone SVG + "pílula" atrás do item ativo */
+.menu-icon {
+    position: relative;
+
+    width: 54px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+}
+
+.menu-icon::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    background-color: currentColor;
+
+    opacity: 0;
+
+    transition: 0.2s;
+}
+
+.menu-item.active .menu-icon::before {
+    opacity: 0.18;
+}
+
+.menu-icon svg {
+    position: relative;
+
+    width: 22px;
+    height: 22px;
+}
+
+html.tema-loja .bottom-menu {
+    background-color: var(--loja-header);
+
+    border-top-color: transparent;
+
+    box-shadow: 0 -2px 14px rgba(0, 0, 0, 0.12);
+}
+
+html.tema-loja .menu-item {
+    color: var(--loja-texto-header);
+
+    opacity: 0.65;
+}
+
+html.tema-loja .menu-item:hover,
+html.tema-loja .menu-item.active {
+    color: var(--loja-texto-header);
+
+    opacity: 1;
+}
+
+
+/* =========================
+   TÍTULO DE SEÇÃO
+========================= */
+
+.section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin: 34px 0 16px;
+}
+
+.section-head h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+}
+
+.section-head a {
+    padding: 7px 16px;
+
+    border: 1px solid currentColor;
+    border-radius: 999px;
+
+    color: inherit;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    opacity: 0.85;
+
+    transition: 0.2s;
+}
+
+.section-head a:hover {
+    background-color: rgba(128, 128, 128, 0.18);
+
+    opacity: 1;
+}
+
+
+/* =========================
+   LISTA DE PRODUTOS (minimalista)
+========================= */
+
+.produtos-lista {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+
+    gap: 14px;
+}
+
+.produto-item {
+    overflow: hidden;
+
+    border: 1px solid rgba(128, 128, 128, 0.28);
+    border-radius: 16px;
+
+    background-color: rgba(128, 128, 128, 0.08);
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.produto-item:hover {
+    transform: translateY(-2px);
+
+    background-color: rgba(128, 128, 128, 0.12);
+
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+}
+
+.produto-linha {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px;
+}
+
+/* seta que indica que o item abre */
+.produto-linha::after {
+    content: "";
+
+    flex-shrink: 0;
+
+    width: 7px;
+    height: 7px;
+
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+
+    opacity: 0.45;
+
+    transform: rotate(45deg);
+
+    transition: transform 0.2s;
+}
+
+.produto-item.aberto .produto-linha::after {
+    transform: rotate(-135deg);
+}
+
+.produto-img {
+    flex-shrink: 0;
+
+    width: 72px;
+    height: 72px;
+
+    border-radius: 12px;
+
+    object-fit: cover;
+
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.produto-meta {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.produto-meta strong {
+    display: block;
+
+    overflow: hidden;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.produto-meta small {
+    display: inline-block;
+
+    margin-top: 5px;
+    padding: 2px 9px;
+
+    border-radius: 999px;
+
+    background-color: rgba(128, 128, 128, 0.2);
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.produto-preco {
+    font-size: 16px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    color: var(--loja-destaque);
+}
+
+.produto-detalhe {
+    display: none;
+
+    margin: 0 14px;
+    padding: 12px 0 16px;
+
+    border-top: 1px solid rgba(128, 128, 128, 0.25);
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    white-space: pre-line;
+}
+
+.produto-item.aberto .produto-detalhe {
+    display: block;
+}
+
+.produto-detalhe h4 {
+    margin: 10px 0 4px;
+
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    text-transform: uppercase;
+
+    opacity: 0.65;
+}
+
+.produto-detalhe h4:first-child {
+    margin-top: 0;
+}
+
+.vazio {
+    grid-column: 1 / -1;
+
+    padding: 40px 20px;
+
+    border: 2px dashed rgba(128, 128, 128, 0.4);
+    border-radius: 16px;
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+.vazio .btn-link {
+    display: inline-block;
+
+    width: auto;
+
+    margin-top: 16px;
+    padding: 12px 26px;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 480px) {
+
+    :root {
+        --margem-lateral: 16px;
+    }
+
+    .loja-header {
+        min-height: 68px;
+
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .loja-header h1 {
+        font-size: 19px;
+    }
+
+    .store-logo {
+        width: 46px;
+        height: 46px;
+    }
+
+    html.tema-loja .home-container {
+        padding: 22px 16px 100px;
+    }
+
+    .section-head {
+        margin-top: 28px;
+    }
+
+    .produto-linha {
+        gap: 12px;
+
+        padding: 12px;
+    }
+
+    .produto-img {
+        width: 62px;
+        height: 62px;
+    }
+
+}

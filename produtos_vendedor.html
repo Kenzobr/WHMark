@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WHMARK - Produtos/Serviços</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loja_tema.css">
+    <link rel="stylesheet" href="css/produtos_vendedor.css">
+
+    <!-- No head de propósito: aplica o tema da loja antes da página aparecer -->
+    <script src="requisicoes/loja_comum.js"></script>
+</head>
+
+<body>
+
+    <header class="loja-header">
+
+        <h1>Produtos/Serviços</h1>
+
+        <button type="button" class="btn-add" id="btnAdicionar">+ Adicionar</button>
+
+    </header>
+
+    <main class="produtos-container">
+
+        <div id="produtos" class="produtos-lista">
+            <p class="loja-status">Carregando produtos...</p>
+        </div>
+
+    </main>
+
+
+    <!-- MODAL: NOVO PRODUTO/SERVIÇO -->
+    <div class="modal-overlay" id="modalProduto">
+
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="tituloModal">
+
+            <div class="modal-top">
+
+                <h2 id="tituloModal">Novo produto/serviço</h2>
+
+                <button type="button" class="modal-close" id="btnFecharModal" aria-label="Fechar">&times;</button>
+
+            </div>
+
+            <form class="login-form" id="form_produto" enctype="multipart/form-data">
+
+                <input type="hidden" name="id_vendedor" id="id_vendedor">
+
+                <div id="carregar"></div>
+
+                <div class="input-group">
+                    <label for="imagem">Imagem</label>
+                    <input type="file" id="imagem" name="imagem"
+                        accept="image/png, image/jpeg, image/webp" required>
+                    <img id="imagemPreview" class="img-preview" alt="Prévia da imagem">
+                </div>
+
+                <div class="input-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" maxlength="100"
+                        placeholder="Ex: Camiseta preta" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="id_categoria">Categoria</label>
+                    <select id="id_categoria" name="id_categoria">
+                        <option></option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="valor">Valor (R$)</label>
+                    <input type="number" id="valor" name="valor" step="0.01" min="0.01"
+                        inputmode="decimal" placeholder="0,00" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" name="descricao" maxlength="500" rows="3"
+                        placeholder="Fale sobre o produto ou serviço" required></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="especificacao">Especificação</label>
+                    <textarea id="especificacao" name="especificacao" maxlength="1000" rows="3"
+                        placeholder="Ex: Tamanho M, 100% algodão, cor preta"></textarea>
+                </div>
+
+                <button type="submit">Salvar</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="requisicoes/api.js"></script>
+    <script src="requisicoes/produtos_vendedor.js"></script>
+    <script src="js/footer_vendedor.js"></script>
+
+</body>
+
+</html>

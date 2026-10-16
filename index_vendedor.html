@@ -5,29 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>WHMARK</title>
+    <title>WHMARK - Minha loja</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loja_tema.css">
+    <link rel="stylesheet" href="css/index_vendedor.css">
+
+    <!-- No head de propósito: aplica o tema da loja antes da página aparecer -->
+    <script src="requisicoes/loja_comum.js"></script>
 </head>
 
 <body>
 
+    <!-- Aparece só quando o vendedor tem loja -->
+    <header class="loja-header" id="lojaHeader" style="display: none;"></header>
+
     <main class="home-container">
 
-        <h1>WHMARK</h1>
+        <!-- Título padrão: some quando a loja existe -->
+        <div id="intro">
+            <h1>WHMARK</h1>
+            <p>Encontre e crie o seu negócio</p>
+        </div>
 
-        <p>
-            Encontre e crie o seu negócio
-        </p>
+        <!-- Preenchido pelo requisicoes/index_vendedor.js -->
+        <div id="loja">
+            <p class="loja-status">Carregando sua loja...</p>
+        </div>
 
     </main>
 
-
     <!-- FOOTER -->
+    <div id="footer">
+    
+</div>
 
-    <div id="footer"></div>
-
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="requisicoes/api.js"></script>
+    <script src="requisicoes/index_vendedor.js"></script>
     <script src="js/footer_vendedor.js"></script>
 
 </body>
