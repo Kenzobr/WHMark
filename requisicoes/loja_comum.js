@@ -3,9 +3,9 @@
    Incluir no <head> (antes do CSS pintar) para o tema ser aplicado
    na hora, usando a loja guardada no localStorage.
 ========================================================= */
-
+  
 const COR_HEX = /^#[0-9a-fA-F]{6}$/;
-
+ 
 const VARIAVEIS_TEMA = [
     "--loja-header",
     "--loja-texto-header",
@@ -14,7 +14,7 @@ const VARIAVEIS_TEMA = [
     "--loja-destaque",
     "--loja-texto-destaque"
 ];
-
+  
 function GET_USUARIO() {
 
     try {
