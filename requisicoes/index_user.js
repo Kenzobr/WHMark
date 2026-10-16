@@ -9,8 +9,7 @@ function CARREGAR_USER() {
         type: "POST",
         data: { 
             id_user: id_user,
-            tipo: tipo,
-            API: API()
+            tipo: tipo  
          },
         dataType: "json",
 
