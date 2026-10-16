@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>WHMARK</title>
-
+  
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 
 <body>
@@ -19,7 +20,7 @@
         <div class="header-content" style="justify-content: left;">
 
             <h1>WHMARK</h1> 
-            <h1 id="nome"></h1>
+            <h1 id="nome_usuario"></h1>
 
         </div>
 
@@ -45,7 +46,7 @@
 
         <!-- LISTAGEM DOS NEGÓCIOS -->
 
-        <section class="business-list">
+        <section class="business-list" id="lista_lojas">
 
 
             <!-- CARD 1 -->
@@ -216,10 +217,10 @@
 
     <script src="js/footer.js"></script>
 
-
-<script src="https://code.jquery.com/jquery-3.7.1.min.js "></script>
- <script src="requisicoes/api.js"></script>
- <script src="requisicoes/cadastro.js"></script>
+    <script src="js/get_user.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js "></script>
+    <script src="requisicoes/index_user.js"></script>
+    <script src="requisicoes/api.js"></script>
 
 
 </body>
