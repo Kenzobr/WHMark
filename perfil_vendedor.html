@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WHMARK - Perfil</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loja_tema.css">
+    <link rel="stylesheet" href="css/perfil_vendedor.css">
+
+    <!-- No head de propósito: aplica o tema da loja antes da página aparecer -->
+    <script src="requisicoes/loja_comum.js"></script>
+</head>
+
+<body>
+
+    <header class="loja-header">
+        <h1>Perfil</h1>
+    </header>
+
+    <main class="perfil-container">
+
+        <!-- ABAS -->
+        <div class="abas" role="tablist">
+            <button type="button" class="aba-btn ativa" data-aba="loja" role="tab">Perfil da loja</button>
+            <button type="button" class="aba-btn" data-aba="vendedor" role="tab">Perfil do vendedor</button>
+        </div>
+
+
+        <!-- ===================== ABA: LOJA ===================== -->
+        <section class="aba ativa" id="aba-loja">
+
+            <!-- Aparece só se o vendedor ainda não tem loja -->
+            <div class="perfil-card sem-loja" id="semLoja" style="display: none;">
+                <h2>Você ainda não tem uma loja</h2>
+                <p>Crie a sua loja para poder personalizar tudo por aqui.</p>
+                <a href="criar_loja.html" class="btn-link">Criar minha loja</a>
+            </div>
+
+            <form class="login-form" id="form_loja_perfil" enctype="multipart/form-data" style="display: none;">
+
+                <input type="hidden" name="id_vendedor">
+
+                <div class="perfil-card">
+
+                    <h2>Sobre a loja</h2>
+
+                    <div class="input-group">
+                        <label for="l_nome">Nome da loja</label>
+                        <input type="text" id="l_nome" name="nome" maxlength="100" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="l_especialidade">Produto / especialidade</label>
+                        <input type="text" id="l_especialidade" name="especialidade" maxlength="100" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="l_categoria">Categoria</label>
+                        <select id="l_categoria" name="categoria" required>
+                            <option value="roupas">Roupas</option>
+                            <option value="comidas">Comidas</option>
+                            <option value="servicos">Serviços</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="perfil-card">
+
+                    <h2>Rosto da loja</h2>
+
+                    <div class="input-group">
+                        <label for="l_logo">Logo da loja</label>
+                        <input type="file" id="l_logo" name="logo" accept="image/png, image/jpeg, image/webp">
+                        <img id="logoAtual" class="logo-atual" alt="Logo atual">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="l_descricao">Descrição</label>
+                        <textarea id="l_descricao" name="descricao" maxlength="300" rows="4"></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="l_cidade">Cidade</label>
+                        <input type="text" id="l_cidade" name="cidade" maxlength="80" required>
+                    </div>
+
+                    <div class="row-2">
+
+                        <div class="input-group">
+                            <label for="l_estado">UF</label>
+                            <input type="text" id="l_estado" name="estado" maxlength="2" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="l_bairro">Bairro</label>
+                            <input type="text" id="l_bairro" name="bairro" maxlength="80">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="perfil-card">
+
+                    <h2>Cores da loja</h2>
+
+                    <div class="color-grid">
+
+                        <div class="color-item">
+                            <label for="l_cor_header">Fundo do header</label>
+                            <input type="color" id="l_cor_header" name="cor_header" value="#d90429">
+                        </div>
+
+                        <div class="color-item">
+                            <label for="l_cor_texto_header">Texto do header</label>
+                            <input type="color" id="l_cor_texto_header" name="cor_texto_header" value="#ffffff">
+                        </div>
+
+                        <div class="color-item">
+                            <label for="l_cor_fundo">Fundo da loja</label>
+                            <input type="color" id="l_cor_fundo" name="cor_fundo" value="#f7f7f7">
+                        </div>
+
+                        <div class="color-item">
+                            <label for="l_cor_texto">Texto da loja</label>
+                            <input type="color" id="l_cor_texto" name="cor_texto" value="#111111">
+                        </div>
+
+                        <div class="color-item">
+                            <label for="l_cor_destaque">Botões / destaque</label>
+                            <input type="color" id="l_cor_destaque" name="cor_destaque" value="#d90429">
+                        </div>
+
+                    </div>
+
+                    <!-- PRÉVIA -->
+                    <div class="loja-preview">
+
+                        <div class="preview-header" id="pvHeader">
+                            <img id="pvLogo" class="preview-logo" alt="">
+                            <span id="pvNome">Minha loja</span>
+                        </div>
+
+                        <div class="preview-body" id="pvBody">
+
+                            <p>Assim vai aparecer a sua loja</p>
+
+                            <div class="preview-card">
+                                <strong>Produto exemplo</strong>
+                                <button type="button" id="pvBotao">Comprar</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="msg" id="msgLoja"></div>
+
+                <button type="submit" class="btn-salvar">Salvar alterações da loja</button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ===================== ABA: VENDEDOR ===================== -->
+        <section class="aba" id="aba-vendedor">
+
+            <form class="login-form" id="form_vendedor">
+
+                <input type="hidden" name="id_vendedor">
+
+                <div class="perfil-card">
+
+                    <h2>Dados cadastrais</h2>
+
+                    <div class="input-group">
+                        <label for="v_nome">Nome</label>
+                        <input type="text" id="v_nome" name="nome" maxlength="100" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="v_email">E-mail</label>
+                        <input type="email" id="v_email" name="email" maxlength="150" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="v_telefone">Telefone</label>
+                        <input type="tel" id="v_telefone" name="telefone" maxlength="15"
+                            placeholder="(00) 00000-0000" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="v_documento">CPF ou CNPJ</label>
+                        <input type="text" id="v_documento" name="documento" maxlength="18"
+                            placeholder="000.000.000-00" required>
+                    </div>
+
+                </div>
+
+                <div class="perfil-card">
+
+                    <h2>Chave PIX</h2>
+
+                    <div class="input-group">
+                        <label for="v_tipo_chave">Tipo da chave</label>
+                        <select id="v_tipo_chave" name="tipo_chave">
+                            <option value="">Sem chave PIX</option>
+                            <option value="cpf">CPF</option>
+                            <option value="cnpj">CNPJ</option>
+                            <option value="telefone">Número de telefone</option>
+                            <option value="email">E-mail</option>
+                            <option value="aleatoria">Chave aleatória</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="v_chave_pix">Chave PIX</label>
+                        <input type="text" id="v_chave_pix" name="chave_pix" autocomplete="off"
+                            placeholder="Selecione o tipo da chave" disabled>
+                    </div>
+
+                    <p class="dica">O documento e a chave PIX ficam criptografados no banco de dados.</p>
+
+                </div>
+
+                <div class="msg" id="msgVendedor"></div>
+
+                <button type="submit" class="btn-salvar">Salvar dados do vendedor</button>
+
+            </form>
+
+
+            <form class="login-form" id="form_senha">
+
+                <input type="hidden" name="id_vendedor">
+
+                <div class="perfil-card">
+
+                    <h2>Alterar senha</h2>
+
+                    <div class="input-group">
+                        <label for="s_atual">Senha atual</label>
+                        <input type="password" id="s_atual" name="senha_atual" autocomplete="current-password" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="s_nova">Nova senha</label>
+                        <input type="password" id="s_nova" name="nova_senha" autocomplete="new-password" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="s_confirmacao">Confirmar nova senha</label>
+                        <input type="password" id="s_confirmacao" name="confirmacao" autocomplete="new-password" required>
+                    </div>
+
+                </div>
+
+                <div class="msg" id="msgSenha"></div>
+
+                <button type="submit" class="btn-salvar">Alterar senha</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="requisicoes/api.js"></script>
+    <script src="requisicoes/perfil_vendedor.js"></script>
+    <script src="js/footer_vendedor.js"></script>
+
+</body>
+
+</html>
