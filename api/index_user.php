@@ -115,6 +115,7 @@ while ($loja = mysqli_fetch_assoc($query_lojas)) {
 resposta(
     200,
     'sucesso',
+    'DEU BOA',
     [
             'html' => $html_lojas,
             'nome' => $nome_user
