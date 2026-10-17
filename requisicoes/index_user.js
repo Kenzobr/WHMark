@@ -21,7 +21,7 @@ function CARREGAR_USER() {
 
                 return;
             }
-            const DADOS = REPOSTA.dados;
+            const DADOS = RESPOSTA.dados;
 
             $("#lista_lojas").empty();
             $("#nome_usuario").text(DADOS.nome || "");
