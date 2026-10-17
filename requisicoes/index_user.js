@@ -26,7 +26,7 @@ function CARREGAR_USER() {
             $("#lista_lojas").empty();
             $("#nome_usuario").text(DADOS.nome || "");
             
-            $("#lista-lojas").html(DADOS.html || "");
+            $("#lista_lojas").html(DADOS.html || "");
 
             
         },
