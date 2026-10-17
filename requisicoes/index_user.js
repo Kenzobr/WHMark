@@ -17,7 +17,7 @@ function CARREGAR_USER() {
 
             if (RESPOSTA.status !== "sucesso") {
 
-                AO_ERRO(RESPOSTA.mensagem);
+                alert(RESPOSTA.mensagem);
 
                 return;
             }
@@ -33,8 +33,7 @@ function CARREGAR_USER() {
 
         error: function (XHR) {
 
-            AO_ERRO(
-                XHR.responseJSON?.mensagem ||
+            alert(
                 "Erro ao conectar com o servidor."
             );
 
