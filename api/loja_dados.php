@@ -39,8 +39,13 @@ if (mysqli_num_rows($res_user) === 0) {
 $res_usuario = mysqli_fetch_assoc($res_user);
 $nome_user = $res_usuario['nome'];
 
-$id_loja_des = descriptografar($id_loja);
-
+try {
+    $id_loja_des = descriptografar($id_loja);
+} catch (InvalidArgumentException $e) {
+    resposta(400, 'erro', 'ID da loja inválido ou malformado.');
+} catch (RuntimeException $e) {
+    resposta(400, 'erro', 'Não foi possível validar o ID da loja.');
+}
   
 $sql_lojas = "SELECT * FROM lojas where id='$id_loja_des'";
 
