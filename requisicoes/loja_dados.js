@@ -12,7 +12,7 @@ function CARREGAR_LOJA() {
         data: { 
             id_user: id_user,
             id_loja: idLoja
-         },
+         },  
         dataType: "json",
 
         success: function (RESPOSTA) {
@@ -25,21 +25,12 @@ function CARREGAR_LOJA() {
             }
             const DADOS = RESPOSTA.dados;
 
-            $("#produtos").empty();
-            $("categorias").empty();
-            $("header").empty();
-            $("main").empty();
-            $("footer").empty();
+            $("#all").empty();
+        
 
-            $("#header").html(DADOS.html_header || "");
+            $("#all").html(DADOS.html || "");
 
-            $("#produtos").html(DADOS.html_produtos || "");
-            
-            $("#categorias").html(DADOS.html_categorias || "");
-
-            $("#main").html(DADOS.html_main || "");
-
-            $("#footer").html(DADOS.html_footer || "");
+          
 
 
             
