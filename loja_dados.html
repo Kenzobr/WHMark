@@ -198,6 +198,23 @@
     <script src="requisicoes/loja_dados.js"></script>
 
     <script>
+
+                
+        function GET_USUARIO() {
+
+            try {
+
+                return JSON.parse(localStorage.getItem("usuario") || "null");
+
+            } catch (ERRO) {
+
+                return null;
+
+            }
+        }
+
+
+
     document.addEventListener("DOMContentLoaded", function () {
 
         CARREGAR_LOJA();
