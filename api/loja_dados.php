@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
     exit;
 }
-  
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     resposta(405, 'erro', 'Método não permitido.');
 }
@@ -39,15 +39,15 @@ if (mysqli_num_rows($res_user) === 0) {
 $res_usuario = mysqli_fetch_assoc($res_user);
 $nome_user = $res_usuario['nome'];
 
-// try {
-//     $id_loja_des = descriptografar($id_loja);
-// } catch (InvalidArgumentException $e) {
-//     resposta(400, 'erro', 'ID da loja inválido ou malformado.');
-// } catch (RuntimeException $e) {
-//     resposta(400, 'erro', 'Não foi possível validar o ID da loja.');
-// }
+try {
+    $id_loja_des = descriptografar($id_loja);
+} catch (InvalidArgumentException $e) {
+    resposta(400, 'erro', 'ID da loja inválido ou malformado.');
+} catch (RuntimeException $e) {
+    resposta(400, 'erro', 'Não foi possível validar o ID da loja.');
+}
   
-$sql_lojas = "SELECT * FROM lojas where id='$id_loja'";
+$sql_lojas = "SELECT * FROM lojas where id='$id_loja_des'";
 
 $query_lojas = mysqli_query($conn, $sql_lojas);
 
@@ -304,37 +304,60 @@ while ($loja = mysqli_fetch_assoc($query_lojas)) {
 
             <footer class='bottom-menu' style='background: {$cor_header}'>
 
-                <a href='loja_dados.html?id_l={$id_loja}' class='menu-item active'>
+                <a href='index_vendedor.html' class='menu-item'>
 
-                    <span class='menu-icon' style='color:{$cor_texto_header}'>⌂</span >
+                    <span class='menu-icon' style='color: {$cor_texto_header}'>
+                        <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'>
+                            <path d='M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z' />
+                        </svg>
+                    </span>
 
                     <span style='color: {$cor_texto_header}'>Home</span>
 
                 </a>
 
 
-                <a href='produtos.html?id_l={$id_loja}' class='menu-item'>
+                <a href='produtos_vendedor.html' class='menu-item'>
 
+                    <span class='menu-icon' style='color: {$cor_texto_header}'>
+                        <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'>
+                            <path d='M6 7h12l1 13H5z' />
+                            <path d='M9 7a3 3 0 0 1 6 0' />
+                        </svg>
+                    </span>
 
-
-                        <span class='menu-icon' style='color: {$cor_texto_header}'>⌕</span>
-
-                        <span style='color: {$cor_texto_header}'>Produtos/Serviços</span>
-
-                    
-
-                </a>
-
-
-                <a href='carrinho.html?id_l={$id_loja}' class='menu-item'>
-
-                    <span class='menu-icon' style='color: {$cor_texto_header}'>🛒</span>
-                    <span style='color: {$cor_texto_header}'>Carrinho</span>
+                    <span style='color: {$cor_texto_header}'>Produtos/Serviços</span>
 
                 </a>
 
-                
-  
+
+                <a href='pagamentos.html' class='menu-item'>
+
+                    <span class='menu-icon' style='color: {$cor_texto_header}'>
+                        <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'>
+                            <circle cx='12' cy='12' r='9' />
+                            <path d='M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.5 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1 2-2.5 2c-1.1 0-2-.5-2.5-1.5M12 6.5V8m0 8v1.5' />
+                        </svg>
+                    </span>
+
+                    <span style='color: {$cor_texto_header}'>Financeiro</span>
+
+                </a>
+
+                <a href='perfil_vendedor.html' class='menu-item'>
+
+                    <span class='menu-icon' style='color: {$cor_texto_header}'>
+                        <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'>
+                            <path d='M4 7h10M18 7h2M4 17h2M10 17h10' />
+                            <circle cx='16' cy='7' r='2' />
+                            <circle cx='8' cy='17' r='2' />
+                        </svg>
+                    </span>
+
+                    <span style='background: {$cor_texto_header}'>Configuração</span>
+
+                </a>
+
 
             </footer>
 
