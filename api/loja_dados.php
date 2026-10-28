@@ -308,7 +308,7 @@ while ($loja = mysqli_fetch_assoc($query_lojas)) {
 
                     <span class='menu-icon' style='color:{$cor_texto_header}'>⌂</span >
 
-                    <span style='color: {$cor_texto_header}>Home</span>
+                    <span style='color: {$cor_texto_header}'>Home</span>
 
                 </a>
 
