@@ -9,14 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-    resposta(405, 'erro', 'Método não permitido.');
-}
 
 require_once("conexao.php");
 
-$id_user = (int) ($_GET['id_user'] ?? 0);
-$id_loja = (string) ($_GET['id_loja'] ?? '');
+$id_user = (int) ($_POST['id_user'] ?? 0);
+$id_loja = (string) ($_POST['id_loja'] ?? '');
 
 
 if ($id_user <= 0) {
