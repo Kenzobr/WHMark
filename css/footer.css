@@ -1,18 +1,18 @@
-#footer {
+/* =========================
+   FOOTER FIXO
+========================= */
+
+#footer.bottom-menu {
     position: fixed;
+
     bottom: 0;
     left: 0;
+
     width: 100%;
     height: 70px;
+
     z-index: 9999;
-}
 
-.bottom-menu {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 70px;
     box-sizing: border-box;
 
     display: flex;
@@ -24,9 +24,13 @@
     border-top: 1px solid #e5e5e5;
 }
 
+/* =========================
+   ITENS DO MENU
+========================= */
+
 .bottom-menu .menu-item {
-    display: flex !important;
-    flex: 1 1 25%;
+    display: flex;
+    flex: 1;
     min-width: 0;
     height: 100%;
 
@@ -35,7 +39,6 @@
     align-items: center;
 
     gap: 4px;
-    overflow: visible;
 
     color: #777;
     text-decoration: none;
@@ -43,36 +46,15 @@
 }
 
 .bottom-menu .menu-item span {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .bottom-menu .menu-icon svg {
     display: block;
     width: 22px;
     height: 22px;
-}
-
-.menu-item {
-    height: 100%;
-
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    gap: 4px;
-
-    color: #777;
-
-    text-decoration: none;
-
-    font-size: 11px;
-
-    transition: 0.2s;
 }
 
 .menu-icon {
@@ -88,4 +70,3 @@
     color: #111;
     font-weight: 600;
 }
-
