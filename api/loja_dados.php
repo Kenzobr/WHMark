@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
     exit;
 }
-
+  
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     resposta(405, 'erro', 'Método não permitido.');
 }
@@ -39,15 +39,15 @@ if (mysqli_num_rows($res_user) === 0) {
 $res_usuario = mysqli_fetch_assoc($res_user);
 $nome_user = $res_usuario['nome'];
 
-try {
-    $id_loja_des = descriptografar($id_loja);
-} catch (InvalidArgumentException $e) {
-    resposta(400, 'erro', 'ID da loja inválido ou malformado.');
-} catch (RuntimeException $e) {
-    resposta(400, 'erro', 'Não foi possível validar o ID da loja.');
-}
+// try {
+//     $id_loja_des = descriptografar($id_loja);
+// } catch (InvalidArgumentException $e) {
+//     resposta(400, 'erro', 'ID da loja inválido ou malformado.');
+// } catch (RuntimeException $e) {
+//     resposta(400, 'erro', 'Não foi possível validar o ID da loja.');
+// }
   
-$sql_lojas = "SELECT * FROM lojas where id='$id_loja_des'";
+$sql_lojas = "SELECT * FROM lojas where id='$id_loja'";
 
 $query_lojas = mysqli_query($conn, $sql_lojas);
 
