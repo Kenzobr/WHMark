@@ -304,60 +304,37 @@ while ($loja = mysqli_fetch_assoc($query_lojas)) {
 
             <footer class='bottom-menu' style='background: {$cor_header}'>
 
-                <a href='index_vendedor.html' class='menu-item'>
+                <a href='loja_dados.html?id_l={$id_loja}' class='menu-item active'>
 
-                    <span class='menu-icon' style='color: {$cor_texto_header}'>
-                        <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'>
-                            <path d='M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z' />
-                        </svg>
-                    </span>
+                    <span class='menu-icon' style='color:{$cor_texto_header}'>⌂</span >
 
-                    <span style='color: {$cor_texto_header}'>Home</span>
+                    <span style='color: {$cor_texto_header}>Home</span>
 
                 </a>
 
 
-                <a href='produtos_vendedor.html' class='menu-item'>
-
-                    <span class='menu-icon' style='color: {$cor_texto_header}'>
-                        <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'>
-                            <path d='M6 7h12l1 13H5z' />
-                            <path d='M9 7a3 3 0 0 1 6 0' />
-                        </svg>
-                    </span>
-
-                    <span style='color: {$cor_texto_header}'>Produtos/Serviços</span>
-
-                </a>
+                <a href='produtos.html?id_l={$id_loja}' class='menu-item'>
 
 
-                <a href='pagamentos.html' class='menu-item'>
 
-                    <span class='menu-icon' style='color: {$cor_texto_header}'>
-                        <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'>
-                            <circle cx='12' cy='12' r='9' />
-                            <path d='M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.5 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1 2-2.5 2c-1.1 0-2-.5-2.5-1.5M12 6.5V8m0 8v1.5' />
-                        </svg>
-                    </span>
+                        <span class='menu-icon' style='color: {$cor_texto_header}'>⌕</span>
 
-                    <span style='color: {$cor_texto_header}'>Financeiro</span>
+                        <span style='color: {$cor_texto_header}'>Produtos/Serviços</span>
+
+                    
 
                 </a>
 
-                <a href='perfil_vendedor.html' class='menu-item'>
 
-                    <span class='menu-icon' style='color: {$cor_texto_header}'>
-                        <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'>
-                            <path d='M4 7h10M18 7h2M4 17h2M10 17h10' />
-                            <circle cx='16' cy='7' r='2' />
-                            <circle cx='8' cy='17' r='2' />
-                        </svg>
-                    </span>
+                <a href='carrinho.html?id_l={$id_loja}' class='menu-item'>
 
-                    <span style='background: {$cor_texto_header}'>Configuração</span>
+                    <span class='menu-icon' style='color: {$cor_texto_header}'>🛒</span>
+                    <span style='color: {$cor_texto_header}'>Carrinho</span>
 
                 </a>
 
+                
+  
 
             </footer>
 
